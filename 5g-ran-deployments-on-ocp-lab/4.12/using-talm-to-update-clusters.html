@@ -714,7 +714,7 @@ Below commands must be executed from the workstation host if not specified other
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get operators</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                                   AGE
 advanced-cluster-management.open-cluster-management    16h
@@ -732,7 +732,7 @@ topology-aware-lifecycle-manager.openshift-operators   16h</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get pods,sa,deployments -n openshift-operators</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                                           READY   STATUS    RESTARTS        AGE
 pod/cluster-group-upgrades-controller-manager-6d6fc98d-6cnf9   2/2     Running   1 (2d14h ago)   2d14h
@@ -771,7 +771,7 @@ It&#8217;s possible that you get <code>UpgradeNotCompleted</code>, if that&#8217
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get cgu -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE     NAME   AGE     STATE       DETAILS
 ztp-install   sno2   3h29m   Completed   All clusters are compliant with all the managed policies</code></pre>
@@ -879,7 +879,7 @@ Notice in the following picture that there are policies not applying to any clus
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig label managedcluster sno1 du-zone=europe logicalGroup=active</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">managedcluster.cluster.open-cluster-management.io/sno1 labeled</code></pre>
 </div>
@@ -950,7 +950,7 @@ EOF</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get cgu -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE     STATE                      DETAILS
 ztp-install    sno2                 3h40m   Completed                  All clusters are compliant with all the managed policies
@@ -977,7 +977,7 @@ Notice that pre-cache job can take up to 5m to be created.
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno2-kubeconfig -n openshift-talo-pre-cache get job pre-cache</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME        COMPLETIONS   DURATION   AGE
 pre-cache   0/1           64s        64s</code></pre>
@@ -991,7 +991,7 @@ pre-cache   0/1           64s        64s</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno2-kubeconfig logs job/pre-cache -n openshift-talo-pre-cache -f</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">upgrades.pre-cache 2023-03-16T12:59:10+00:00 DEBUG Release index image processing done
 58ff6e48f95bf6b444150290f481ad6fc6051e76defccf3611bdc2f9ddc1cccc
@@ -1027,7 +1027,7 @@ It can take up to 5 minutes for the CGU to report the new state.
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get cgu -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE   STATE        DETAILS
 ztp-install    sno2                 4h    Completed    All clusters are compliant with all the managed policies
@@ -1053,7 +1053,7 @@ ztp-policies   update-europe-snos   20m   NotEnabled   Not enabled</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get cgu -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE    STATE        DETAILS
 ztp-install    sno2                 4h6m   Completed    All clusters are compliant with all the managed policies
@@ -1080,7 +1080,7 @@ Notice that backup job can take up to 5m to be created.
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno1-kubeconfig get jobs -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE                              NAME                                                              COMPLETIONS   DURATION   AGE
 assisted-installer                     assisted-installer-controller                                     1/1           38m        4h47m
@@ -1100,7 +1100,7 @@ openshift-talo-pre-cache               pre-cache                                
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno2-kubeconfig logs job/backup-agent -n openshift-talo-backup -f</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">INFO[0000] ------------------------------------------------------------
 INFO[0000] Cleaning up old content...
@@ -1152,7 +1152,7 @@ INFO[0023] backup has successfully finished ...</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get cgu -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE    STATE             DETAILS
 ztp-install    sno2                 4h9m   Completed         All clusters are compliant with all the managed policies
@@ -1167,7 +1167,7 @@ ztp-policies   update-europe-snos   28m    BackupCompleted   Backup is completed
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno2-kubeconfig get clusterversion,nodes</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
 clusterversion.config.openshift.io/version   4.12.3    True        True          4m2s    Working towards 4.12.5: 213 of 829 done (25% complete), waiting on config-operator, machine-api
@@ -1200,9 +1200,9 @@ node/sno2.5g-deployment.lab   Ready    control-plane,master,worker   5h7m   v1.2
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno2-kubeconfig get clusterversion,nodes</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
 clusterversion.config.openshift.io/version   4.12.5    True        False         9m13s   Cluster version is 4.12.5
 
 NAME                          STATUS   ROLES                         AGE     VERSION
@@ -1214,9 +1214,9 @@ node/sno2.5g-deployment.lab   Ready    control-plane,master,worker   5h56m   v1.
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/sno1-kubeconfig get clusterversion,nodes</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
 clusterversion.config.openshift.io/version   4.12.5    True        False         33m     Cluster version is 4.12.5
 
 NAME                      STATUS   ROLES                         AGE   VERSION
@@ -1234,9 +1234,9 @@ node/openshift-master-0   Ready    control-plane,master,worker   18h   v1.25.4+a
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig get cgu -A</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE     STATE       DETAILS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE      NAME                 AGE     STATE       DETAILS
 ztp-install    sno2                 5h26m   Completed   All clusters are compliant with all the managed policies
 ztp-policies   update-europe-snos   106m    Completed   All clusters are compliant with all the managed policies</code></pre>
 </div>

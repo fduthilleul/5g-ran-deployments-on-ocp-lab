@@ -764,18 +764,18 @@ Below commands must be executed from the workstation host if not specified other
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig -n sno2 get agentclusterinstall sno2</code></pre>
 </div>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME   CLUSTER   STATE
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME   CLUSTER   STATE
 sno2   sno2      finalizing</code></pre>
 </div>
 </div>
 </li>
 <li>
 <p>In case you want expanded information like we saw in the WebUI you can check the conditions of the <code>AgentClusterInstall</code> object. For example, while installing:</p>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- lastProbeTime: "2023-03-18T16:18:20Z"
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">- lastProbeTime: "2023-03-18T16:18:20Z"
   lastTransitionTime: "2023-03-18T16:18:20Z"
   message: 'The installation is in progress: Finalizing cluster installation. Cluster
     version status: progressing, message: Working towards 4.12.3: 523 of 829 done
@@ -788,9 +788,9 @@ sno2   sno2      finalizing</code></pre>
 </li>
 <li>
 <p>Once installed:</p>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- lastProbeTime: "2023-03-18T17:05:20Z"
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">- lastProbeTime: "2023-03-18T17:05:20Z"
   lastTransitionTime: "2023-03-18T17:05:20Z"
   message: 'The installation has completed: Cluster is installed'
   reason: InstallationCompleted

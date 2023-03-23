@@ -816,7 +816,7 @@ TALM will basically enforce all existing policies targeting a cluster that has n
 <div class="paragraph">
 <p>A ZTP wave is basically an annotation (ran.openshift.io/ztp-deploy-wave) included on each policy template that will permit TALM to apply policies in an ordered manner. As an example, every <a href="policygen-deepdive.html#policies-templating">policy</a> generated from a PolicyGenTemplate by ZTP incorporates a wave number such as the <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/source-crs/SriovSubscriptionNS.yaml">SriovSubscriptionNS.yaml</a>:</p>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
 kind: Namespace
@@ -860,7 +860,7 @@ All CRs in the same policy must have the same setting for the ztp-deploy-wave an
 <h2 id="talm-precache"><a class="anchor" href="#talm-precache"></a>Precaching</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Clusters might have limited bandwidth to access the container image registry, which can cause a timeout before the updates are completed. This feature help us to schedule cluster upgrades to newer OCP releases in an organized manner and within the maintenance window assigned. Notice in the following picture, how the upgrade can be orchestrated depending on our requirements. See that in the first maintenance window not all clusters had time to precache all container images, then the precache process was postponed to be finished in another agreed maintenance window. ONce done, a new maintenance window was requested to actually execute the platform upgrade.</p>
+<p>Clusters might have limited bandwidth to access the container image registry, which can cause a timeout before the updates are completed. This feature help us to schedule cluster upgrades to newer OCP releases in an organized manner and within the maintenance window assigned. Notice in the following picture, how the upgrade can be orchestrated depending on our requirements. See that in the first maintenance window not all clusters had time to precache all container images, then the precache process was postponed to be finished in another agreed maintenance window. Once done, a new maintenance window was requested to actually execute the platform upgrade.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -870,7 +870,7 @@ All CRs in the same policy must have the same setting for the ztp-deploy-wave an
 <div class="paragraph">
 <p>By enabling precache feature and disable the CGU, as shown in the following code snippet, the first thing is going to happen is pull all the container images required for the OCP release we are about to upgrade in the target cluster. So, we will have all required images already downloaded in our container-storage location, by default '/var/lib/containers', before even starting the upgrade task.</p>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: ran.openshift.io/v1alpha1
 kind: ClusterGroupUpgrade
@@ -948,7 +948,7 @@ It is highly recommended to create a recovery partition at install time if opted
 <div class="paragraph">
 <p>Below we can see the same CGU shown in the previous section, but this time the CGU is enabled. So, if the CGU and backup specs are enabled, then backup task is executed prior to the platform upgrade. If the backup finishes successfully, the upgrade task is started.</p>
 </div>
-<div class="listingblock console-input">
+<div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: ran.openshift.io/v1alpha1
 kind: ClusterGroupUpgrade
