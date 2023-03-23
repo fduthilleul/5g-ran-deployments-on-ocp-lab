@@ -716,7 +716,7 @@ Below commands must be executed from the workstation host if not specified other
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                                   AGE
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                                                   AGE
 advanced-cluster-management.open-cluster-management    16h
 lvms-operator.openshift-storage                        16h
 multicluster-engine.multicluster-engine                16h
@@ -734,7 +734,7 @@ topology-aware-lifecycle-manager.openshift-operators   16h</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                                           READY   STATUS    RESTARTS        AGE
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                                                           READY   STATUS    RESTARTS        AGE
 pod/cluster-group-upgrades-controller-manager-6d6fc98d-6cnf9   2/2     Running   1 (2d14h ago)   2d14h
 pod/gitops-operator-controller-manager-c6bc6db9f-5z752         1/1     Running   0               2d15h
 
@@ -773,7 +773,7 @@ It&#8217;s possible that you get <code>UpgradeNotCompleted</code>, if that&#8217
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE     NAME   AGE     STATE       DETAILS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE     NAME   AGE     STATE       DETAILS
 ztp-install   sno2   3h29m   Completed   All clusters are compliant with all the managed policies</code></pre>
 </div>
 </div>
@@ -881,7 +881,7 @@ Notice in the following picture that there are policies not applying to any clus
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">managedcluster.cluster.open-cluster-management.io/sno1 labeled</code></pre>
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">managedcluster.cluster.open-cluster-management.io/sno1 labeled</code></pre>
 </div>
 </div>
 </div>
@@ -952,7 +952,7 @@ EOF</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE     STATE                      DETAILS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE      NAME                 AGE     STATE                      DETAILS
 ztp-install    sno2                 3h40m   Completed                  All clusters are compliant with all the managed policies
 ztp-policies   update-europe-snos   10s     PrecacheSpecIsWellFormed   Precaching spec is valid and consistent</code></pre>
 </div>
@@ -979,7 +979,7 @@ Notice that pre-cache job can take up to 5m to be created.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME        COMPLETIONS   DURATION   AGE
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME        COMPLETIONS   DURATION   AGE
 pre-cache   0/1           64s        64s</code></pre>
 </div>
 </div>
@@ -993,7 +993,7 @@ pre-cache   0/1           64s        64s</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">upgrades.pre-cache 2023-03-16T12:59:10+00:00 DEBUG Release index image processing done
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">upgrades.pre-cache 2023-03-16T12:59:10+00:00 DEBUG Release index image processing done
 58ff6e48f95bf6b444150290f481ad6fc6051e76defccf3611bdc2f9ddc1cccc
 upgrades.pre-cache 2023-03-16T12:59:10+00:00 DEBUG Operators index is not specified. Operators will not be pre-cached
 upgrades.pre-cache 2023-03-16T12:59:10+00:00 DEBUG Pulling quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:006e37a1f141eb219364a501767fb4a26210908385eef9576af00b55d8225ecb [1/183]
@@ -1029,7 +1029,7 @@ It can take up to 5 minutes for the CGU to report the new state.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE   STATE        DETAILS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE      NAME                 AGE   STATE        DETAILS
 ztp-install    sno2                 4h    Completed    All clusters are compliant with all the managed policies
 ztp-policies   update-europe-snos   20m   NotEnabled   Not enabled</code></pre>
 </div>
@@ -1055,7 +1055,7 @@ ztp-policies   update-europe-snos   20m   NotEnabled   Not enabled</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE    STATE        DETAILS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE      NAME                 AGE    STATE        DETAILS
 ztp-install    sno2                 4h6m   Completed    All clusters are compliant with all the managed policies
 ztp-policies   update-europe-snos   25m    InProgress   Backup in progress for 2 clusters</code></pre>
 </div>
@@ -1082,7 +1082,7 @@ Notice that backup job can take up to 5m to be created.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE                              NAME                                                              COMPLETIONS   DURATION   AGE
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE                              NAME                                                              COMPLETIONS   DURATION   AGE
 assisted-installer                     assisted-installer-controller                                     1/1           38m        4h47m
 openshift-marketplace                  51f5147f46ba2fcbd47cc8cba3f7a6f28f7cc23b267e380ac5a1ee1de87d962   1/1           11s        4h2m
 openshift-operator-lifecycle-manager   collect-profiles-27982845                                         1/1           7s         39m
@@ -1102,7 +1102,7 @@ openshift-talo-pre-cache               pre-cache                                
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">INFO[0000] ------------------------------------------------------------
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">INFO[0000] ------------------------------------------------------------
 INFO[0000] Cleaning up old content...
 INFO[0000] ------------------------------------------------------------
 INFO[0000] Old directories deleted with contents
@@ -1154,7 +1154,7 @@ INFO[0023] backup has successfully finished ...</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAMESPACE      NAME                 AGE    STATE             DETAILS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAMESPACE      NAME                 AGE    STATE             DETAILS
 ztp-install    sno2                 4h9m   Completed         All clusters are compliant with all the managed policies
 ztp-policies   update-europe-snos   28m    BackupCompleted   Backup is completed for all clusters</code></pre>
 </div>
@@ -1169,7 +1169,7 @@ ztp-policies   update-europe-snos   28m    BackupCompleted   Backup is completed
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME                                         VERSION   AVAILABLE   PROGRESSING   SINCE   STATUS
 clusterversion.config.openshift.io/version   4.12.3    True        True          4m2s    Working towards 4.12.5: 213 of 829 done (25% complete), waiting on config-operator, machine-api
 
 NAME                          STATUS   ROLES                         AGE    VERSION
