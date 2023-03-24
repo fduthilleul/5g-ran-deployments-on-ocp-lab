@@ -742,21 +742,11 @@ e7cf765660a3  quay.io/mavazque/registry:2.7.1  /etc/docker/regis...  24 hours ag
 <div class="paragraph">
 <p>Before working with <code>oc</code> commands you can enable command auto-completion by running:</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-You can also add this to the <code>.bashrc</code> to make it persistent.
-</td>
-</tr>
-</table>
-</div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion bash)</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion bash)
+# Make it persistent
+oc completion bash &gt;&gt; /etc/bash_completion.d/oc_completion</code></pre>
 </div>
 </div>
 <div class="paragraph">
