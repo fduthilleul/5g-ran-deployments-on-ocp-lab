@@ -71,6 +71,9 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="acronyms.html">Acronyms used in the lab</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="5g-ran-context.html">5G Ran Context</a>
 <ul class="nav-list">
@@ -737,11 +740,31 @@ e7cf765660a3  quay.io/mavazque/registry:2.7.1  /etc/docker/regis...  24 hours ag
 <div class="sect2">
 <h3 id="hub"><a class="anchor" href="#hub"></a>Hub cluster</h3>
 <div class="paragraph">
+<p>Before working with <code>oc</code> commands you can enable command auto-completion by running:</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You can also add this to the <code>.bashrc</code> to make it persistent.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">source &lt;(oc completion bash)</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>Check the status of the hub cluster.</p>
 </div>
 <div class="listingblock console-input">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export KUBECONFIG=hub-kubeconfig
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export KUBECONFIG=~/hub-kubeconfig
 oc get clusterversion</code></pre>
 </div>
 </div>
@@ -795,6 +818,18 @@ openshift-marketplace   redhat-operator-index             grpc               23h
 <h3 id="dns"><a class="anchor" href="#dns"></a>DNS resolution</h3>
 <div class="paragraph">
 <p>Verify that the OpenShift API and the apps domain (wildcard) can be resolved.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>dig</code> command is not part of the standard linux utilities (you may need to install it), in RHEL-based systems is part of the <code>bind-utils</code> package.
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock console-input">
 <div class="content">

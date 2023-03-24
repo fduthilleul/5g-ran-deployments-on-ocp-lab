@@ -71,6 +71,9 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="acronyms.html">Acronyms used in the lab</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="5g-ran-context.html">5G Ran Context</a>
 <ul class="nav-list">
@@ -716,7 +719,7 @@ TALM enables us to select the timing and the clusters where the configuration is
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: ran.openshift.io/v1alpha1
 kind: ClusterGroupUpgrade
 metadata:
-  name: ocp411-3
+  name: ocp-upgrade
   namespace: ztp-group-du-sno
 spec:
   preCaching: true #precache enabled before upgrade
@@ -890,7 +893,7 @@ Precaching currently only targets Single Node OpenShift clusters.
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: ran.openshift.io/v1alpha1
 kind: ClusterGroupUpgrade
 metadata:
-  name: du-upgrade-41018
+  name: du-upgrade
   namespace: ztp-group-du-sno
 spec:
   preCaching: true #precache configuration
@@ -968,7 +971,7 @@ It is highly recommended to create a recovery partition at install time if opted
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: ran.openshift.io/v1alpha1
 kind: ClusterGroupUpgrade
 metadata:
-  name: du-upgrade-41018
+  name: du-upgrade
   namespace: ztp-group-du-sno
 spec:
   preCaching: true #precache was done

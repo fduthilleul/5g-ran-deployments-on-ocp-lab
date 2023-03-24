@@ -71,6 +71,9 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="acronyms.html">Acronyms used in the lab</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="5g-ran-context.html">5G Ran Context</a>
 <ul class="nav-list">
@@ -802,7 +805,7 @@ The GitOps ZTP methodology uses the OpenShift GitOps operator to synchronize Git
 <div class="sect2">
 <h3 id="directories-vs-branches"><a class="anchor" href="#directories-vs-branches"></a>Directories vs Branches</h3>
 <div class="paragraph">
-<p>When using GitOps to manage infrastructure declaratively, the use of branches is an anti-pattern. We have been using branches for a long time when developing our applications, but when doing GitOps we are no longer developing an application, but defining a configuration. If we look at the different tooling around Kubernetes for managing configurations like <code>Helm</code> or <code>Kustomize</code> you will soon enough see that they know nothing about Git branches, they use just files. There are several reasons why organizing environments as directory structure in a single branch is preferred:</p>
+<p>When using GitOps to manage infrastructure declaratively, the use of branches is an <a href="https://codefresh.io/blog/stop-using-branches-deploying-different-gitops-environments/">anti-pattern</a>. We have been using branches for a long time when developing our applications, but when doing GitOps we are no longer developing an application, but defining a configuration. If we look at the different tooling around Kubernetes for managing configurations like <code>Helm</code> or <code>Kustomize</code> you will soon enough see that they know nothing about Git branches, they use just files. There are several reasons why organizing environments as directory structure in a single branch is preferred:</p>
 </div>
 <div class="ulist">
 <ul>

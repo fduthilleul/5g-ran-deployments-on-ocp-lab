@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Monitoring the Deployment :: LAB - 5G RAN Deployments on OpenShift</title>
-    <link rel="canonical" href="https://labs.sysdeseng.com/5g-ran-deployments-on-ocp-lab/5g-ran-deployments-on-ocp-lab/4.12/monitoring-the-deployment.html">
-    <link rel="prev" href="running-the-deployment.html">
-    <link rel="next" href="managing-existing-clusters.html">
+    <title>Acronyms used in the lab :: LAB - 5G RAN Deployments on OpenShift</title>
+    <link rel="canonical" href="https://labs.sysdeseng.com/5g-ran-deployments-on-ocp-lab/5g-ran-deployments-on-ocp-lab/4.12/acronyms.html">
+    <link rel="prev" href="introduction.html">
+    <link rel="next" href="5g-ran-context.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../../_/css/site.css">
   </head>
@@ -70,7 +70,7 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="acronyms.html">Acronyms used in the lab</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -475,15 +475,15 @@
   </li>
 </ul>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="monitoring-the-deployment.html">Monitoring the Deployment</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#monitoring-deployment-webui">Monitoring the Deployment via the WebUI</a>
+    <a class="nav-link" href="monitoring-the-deployment.html#monitoring-deployment-webui">Monitoring the Deployment via the WebUI</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#monitoring-deployment-cli">Monitoring the Deployment via the CLI</a>
+    <a class="nav-link" href="monitoring-the-deployment.html#monitoring-deployment-cli">Monitoring the Deployment via the CLI</a>
   </li>
 </ul>
   </li>
@@ -664,186 +664,99 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">LAB - 5G RAN Deployments on OpenShift</a></li>
-    <li><a href="monitoring-the-deployment.html">Monitoring the Deployment</a></li>
+    <li><a href="acronyms.html">Acronyms used in the lab</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/RHsyseng/5g-ran-deployments-on-ocp-lab/edit/main/documentation/modules/ROOT/pages/monitoring-the-deployment.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/RHsyseng/5g-ran-deployments-on-ocp-lab/edit/main/documentation/modules/ROOT/pages/acronyms.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Monitoring the Deployment</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Once the ZTP GitOps Pipeline starts deploying our clusters we can follow the installation status via the WebUI or the CLI.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="monitoring-deployment-webui"><a class="anchor" href="#monitoring-deployment-webui"></a>Monitoring the Deployment via the WebUI</h2>
-<div class="sectionbody">
-<div class="admonitionblock warning">
-<table>
+<h1 class="page">Acronyms used in the lab</h1>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-It may take a while for the installation to start, wait at least 10 minutes if you see <code>The cluster is not ready for installation</code> message or the <code>SNO2</code> cluster shows up as <code>draft</code>.
-</td>
+<th class="tableblock halign-left valign-top">Acronym</th>
+<th class="tableblock halign-left valign-top">Concept</th>
 </tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Access the <a href="https://console-openshift-console.apps.hub.5g-deployment.lab/multicloud/home/welcome">RHACM WebUI</a> and login with the OpenShift credentials.</p>
-</li>
-<li>
-<p>On the top left corner click on <code>local-cluster</code> and choose <code>All Clusters</code> to enter the RHACM Console</p>
-</li>
-<li>
-<p>Once you&#8217;re in, click on <code>Infrastructure</code> &#8594; <code>Clusters</code>. You will see a screen like the one below if the deployment has not yet started:</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/acm-clusterview-draft.png" alt="RHACM Cluster View Draft">
-</div>
-</div>
-</li>
-<li>
-<p>Eventually, the <code>SNO2</code> cluster will start its deployment:</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/acm-clusterview.png" alt="RHACM Cluster View">
-</div>
-</div>
-</li>
-<li>
-<p>In order to check the deployment status of the <code>sno2</code> cluster, click on <code>sno2</code> and you will get presented this screen:</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/acm-sno2-view.png" alt="RHACM sno2 Cluster View">
-</div>
-</div>
-</li>
-<li>
-<p>You can follow the progress here, if you want to get extra details you can click on <code>View Cluster Events</code> and you should see more information:</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/acm-sno2-clusterevents.png" alt="RHACM sno2 Cluster Events">
-</div>
-</div>
-</li>
-<li>
-<p>Deployment will eventually finish:</p>
-<div class="admonitionblock important">
-<table>
+</thead>
+<tbody>
 <tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>SNO2</code> cluster installation takes around 50 minutes to complete.
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BMC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Baseboard Management Controller</p></td>
 </tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/acm-sno2-install-completed.png" alt="RHACM sno2 Cluster Deployment Finished">
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="monitoring-deployment-cli"><a class="anchor" href="#monitoring-deployment-cli"></a>Monitoring the Deployment via the CLI</h2>
-<div class="sectionbody">
-<div class="admonitionblock important">
-<table>
 <tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Below commands must be executed from the workstation host if not specified otherwise.
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CNF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud-native Network Functions</p></td>
 </tr>
-</table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Check the <code>AgentClusterInstall</code> for SNO2 cluster:</p>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig -n sno2 get agentclusterinstall sno2</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">NAME   CLUSTER   STATE
-sno2   sno2      finalizing</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>In case you want expanded information like we saw in the WebUI you can check the conditions of the <code>AgentClusterInstall</code> object. For example, while installing:</p>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc --kubeconfig ~/5g-deployment-lab/hub-kubeconfig -n sno2 get agentclusterinstall sno2 -o yaml</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">- lastProbeTime: "2023-03-18T16:18:20Z"
-  lastTransitionTime: "2023-03-18T16:18:20Z"
-  message: 'The installation is in progress: Finalizing cluster installation. Cluster
-    version status: progressing, message: Working towards 4.12.3: 523 of 829 done
-    (63% complete)'
-  reason: InstallationInProgress
-  status: "False"
-  type: Completed</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Once installed:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">- lastProbeTime: "2023-03-18T17:05:20Z"
-  lastTransitionTime: "2023-03-18T17:05:20Z"
-  message: 'The installation has completed: Cluster is installed'
-  reason: InstallationCompleted
-  status: "True"
-  type: Completed</code></pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div class="admonitionblock important">
-<table>
 <tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>SNO2</code> cluster installation takes around 50 minutes to complete.
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DPDK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Plane Development Kit</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DU</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Distributed Unit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FEC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Forward Error correction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GVK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Version Kind</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MCE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multicluster Engine for Kubernetes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NTO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Node Tuning Operator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PGT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PolicyGenTemplates</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PMD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Poll Mode Driver</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PTP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Precision Time Protocol</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RAN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Radio Access Network</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RU</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Radio Units</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SR-IOV</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single Root I/O Virtualization</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TALM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Topology Aware Lifecycle Manager</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VFs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtual Functions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vRAN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Virtualized Radio Access Networks</p></td>
+</tr>
+</tbody>
 </table>
-</div>
-<div class="paragraph">
-<p>While the <code>SNO2</code> cluster installs, let&#8217;s move to the next section where we will learn how to add an existing cluster to RHACM and get it managed by the ZTP GitOps Pipeline.</p>
-</div>
-</div>
-</div>
 <nav class="pagination">
-  <span class="prev"><a href="running-the-deployment.html">Running the Deployment</a></span>
-  <span class="next"><a href="managing-existing-clusters.html">Managing Existing Clusters</a></span>
+  <span class="prev"><a href="introduction.html">Introduction</a></span>
+  <span class="next"><a href="5g-ran-context.html">5G Ran Context</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
