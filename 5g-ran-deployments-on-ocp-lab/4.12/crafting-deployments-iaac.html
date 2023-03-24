@@ -686,13 +686,13 @@
 <h2 id="introduction-to-siteconfig"><a class="anchor" href="#introduction-to-siteconfig"></a>Introduction to the SiteConfig</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>SiteConfig</code> is an abstraction layer on top of the different components that are used to deploy an OpenShift cluster using the <code>Assisted Service</code>. For the ones familiar with the <code>Assisted Service</code>, you will know that in order to deploy a cluster using this service there are several Kubernetes objects that need to be created like <code>ClusterDeployment</code>, <code>InfraEnv</code>, <code>AgentClusterInstall</code>, etc.</p>
+<p>The <code>SiteConfig</code> is an abstraction layer on top of the different components that are used to deploy an OpenShift cluster using the <code>Assisted Service</code>. For the ones familiar with the <code>Assisted Service</code>, you will know that in order to deploy a cluster using this service there are several Kubernetes objects that need to be created like: <code>ClusterDeployment</code>, <code>InfraEnv</code>, <code>AgentClusterInstall</code>, etc.</p>
 </div>
 <div class="paragraph">
 <p>The SiteConfig simplifies this process by providing a unified structure to describe the cluster deployment configuration in a single place.</p>
 </div>
 <div class="paragraph">
-<p>In <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/gitops-subscriptions/argocd/example/siteconfig/example-sno.yaml">this link</a> you can find an example of a SiteConfig for a SNO deployment. In the next section, we will create our own SiteConfig to deploy a SNO in our lab environment.</p>
+<p>In this <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/gitops-subscriptions/argocd/example/siteconfig/example-sno.yaml">link</a> you can find an example of a SiteConfig for a SNO deployment. In the next section, we will create our own SiteConfig to deploy a SNO in our lab environment.</p>
 </div>
 </div>
 </div>
@@ -867,7 +867,7 @@ In a production environment you don&#8217;t want to add sensible information in 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>BMC credentials file</p>
+<p>BMC credentials file.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt;EOF &gt; ~/5g-deployment-lab/ztp-repository/site-configs/pre-reqs/sno2/bmc-credentials.yaml
@@ -886,7 +886,7 @@ EOF</code></pre>
 </div>
 </li>
 <li>
-<p>Pull secret for accessing the disconnected registry</p>
+<p>Pull secret for accessing the disconnected registry.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt;EOF &gt; ~/5g-deployment-lab/ztp-repository/site-configs/pre-reqs/sno2/pull-secret.yaml
@@ -904,7 +904,7 @@ EOF</code></pre>
 </div>
 </li>
 <li>
-<p>Kustomization file for the SNO2 pre-reqs</p>
+<p>Kustomization file for the SNO2 pre-reqs.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt;EOF &gt; ~/5g-deployment-lab/ztp-repository/site-configs/pre-reqs/sno2/kustomization.yaml
@@ -919,7 +919,7 @@ EOF</code></pre>
 </div>
 </li>
 <li>
-<p>Kustomization file for the clusters pre-reqs</p>
+<p>Kustomization file for the clusters pre-reqs.</p>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat &lt;&lt;EOF &gt; ~/5g-deployment-lab/ztp-repository/site-configs/pre-reqs/kustomization.yaml
