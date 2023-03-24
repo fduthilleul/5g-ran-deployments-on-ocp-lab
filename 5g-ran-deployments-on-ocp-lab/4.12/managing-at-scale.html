@@ -177,7 +177,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="ztp-at-scale.html">ZTP Components</a>
+    <a class="nav-link" href="ztp-at-scale.html">Hub Management Components</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -694,7 +694,7 @@
 <h2 id="olm-subscriptions"><a class="anchor" href="#olm-subscriptions"></a>OLM Subscriptions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Additional functionality for OpenShift clusters can be provided through use of optional operators installed on the cluster. These operators are installed and managed through use of an OLM Subscription CR. Operators are stored in a registry which is periodically updated with new versions of the operator. The Subscription CR may be set to automatically install new versions as they become available, or to a <em>manual</em> mode which requires approval before new versions are installed.</p>
+<p>Additional functionality for OpenShift clusters can be provided through use of optional (day-two) operators installed on the cluster. These operators are installed and managed through use of an OLM Subscription CR. Operators are stored in a registry which is periodically updated with new versions of the operator. The Subscription CR may be set to automatically install new versions as they become available, or to a <em>manual</em> mode which requires approval before new versions are installed.</p>
 </div>
 <div class="paragraph">
 <p>For the same reasons described earlier, the reference configurations for RAN 5G deployments sets Subscription CRs to <em>manual</em> mode to ensure that operator updates occur only when cluster administrators explicitly allow them. Similar to the way in which Policies can be scheduled for enforcement, TALM gives cluster administrators the tools to automatically approve operator updates on selected clusters at specified times.</p>

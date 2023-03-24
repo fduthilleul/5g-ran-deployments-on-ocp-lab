@@ -177,7 +177,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="ztp-at-scale.html">ZTP Components</a>
+    <a class="nav-link" href="ztp-at-scale.html">Hub Management Components</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -672,7 +672,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>GitOps is a key part of how we deploy and manage RAN infrastructure at scale, in this section we are going to cover the basics around GitOps and how it is used in Zero Touch Provisioning (ZTP) of OpenShift clusters.</p>
+<p>GitOps is a key part of how we deploy and manage RAN infrastructure at scale, in this section we are going to cover the basics around GitOps and how it is used in Zero Touch Provisioning (ZTP) and ongoing management of OpenShift clusters.</p>
 </div>
 </div>
 </div>
@@ -680,7 +680,7 @@
 <h2 id="gitops"><a class="anchor" href="#gitops"></a>GitOps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>GitOps ZTP brings proven patterns and methods of working from an IP operations workflow into management of OpenShift infrastructure. The desired state of the OpenShift infrastructure is captured within a Git repository where standard methods of change control, such as pull requests, reviews, sign-off, and merging, can be used to ensure changes are validated prior to taking effect. As with traditional source-code management, Git represents the single "source of truth" for the entire state of the system where the trail of changes to the system state are visible and auditable.</p>
+<p>GitOps brings proven patterns and methods of working from an IP operations workflow into management of OpenShift infrastructure. The desired state of the OpenShift infrastructure is captured within a Git repository where standard methods of change control, such as pull requests, reviews, sign-off, and merging, can be used to ensure changes are validated prior to taking effect. As with traditional source-code management, Git represents the single "source of truth" for the entire state of the system where the trail of changes to the system state are visible and auditable.</p>
 </div>
 <div class="paragraph">
 <p>Traceability of changes in GitOps is no novelty in itself as this approach is almost universally employed for the application source code. However, GitOps advocates applying the same principles (reviews, pull requests, tagging, etc.) to infrastructure and application configuration so that teams can benefit from the same assurance as they do for the application source code.</p>
@@ -704,7 +704,7 @@
 <div class="sect2">
 <h3 id="gitops-principles"><a class="anchor" href="#gitops-principles"></a>GitOps Principles</h3>
 <div class="paragraph">
-<p>GitOps paradigm requires us to describe and observe systems with <strong>declarative</strong> specifications that eventually form the basis of continuous everything. (As a refresher, continuous everything includes but is not limited to continuous integration (CI), testing, delivery, deployment, analytics, governance with many more to come). In turn, in an imperative paradigm, the user is responsible for defining exact steps which are necessary to achieve the end goal and carefully plan every step and the sequence in which they are executed.</p>
+<p>GitOps paradigm requires us to describe and observe systems with <strong>declarative</strong> specifications that eventually form the basis of continuous everything. (As a refresher, continuous everything includes but is not limited to continuous integration (CI), testing, delivery, deployment, analytics, governance with many more to come). By contrast, in an imperative paradigm, the user is responsible for defining exact steps which are necessary to achieve the end goal and carefully plan every step and the sequence in which they are executed.</p>
 </div>
 <div class="paragraph">
 <p>GitOps achieves these tasks using declarative specifications stored in Git repositories, such as YAML files and other defined patterns, that provide a framework for deploying the infrastructure. The declarative output is leveraged by the Red Hat Advanced Cluster Management (RHACM) for multisite deployment.</p>
@@ -736,7 +736,7 @@ Red Hat OpenShift is a declarative Kubernetes platform that administrators can c
 <p><strong>The desired system state and configuration is defined and versioned in Git</strong>. Having the desired configuration of our systems stored and versioned in Git give us the ability to roll out changes easily to our systems and applications. On top of that we can leverage Git&#8217;s security mechanisms in order to ensure the ownership and provenance of the code.</p>
 </li>
 <li>
-<p><strong>Changes to the configuration can be controlled using pull request (PR) mechanisms</strong>. Using Git Pull Requests we can ensure changes to cluster deployments and configuration are reviewed for correctness before taking effect. The originator of the change can request reviews from different team members, run CI tests/validation, etc. The changes become active only when the review is approved and the changes are merged to the main branch.</p>
+<p><strong>Changes to the configuration can be controlled using pull request (PR) mechanisms</strong>. Using Git Pull Requests we can ensure changes to cluster deployments and configuration are reviewed for correctness before taking effect. The originator of the change can request reviews from different team members, run CI tests/validation, etc. The changes become active only when the review is approved and the changes are merged to the main branch. RBAC configuration can be used to ensure that changes are made only by authorized uses.</p>
 </li>
 <li>
 <p><strong>Changes to the configuration can be automatically applied using Continuous Integration</strong>. Using standard GitOps continuous integration infrastructure the desired state can be automatically applied to the set of managed clusters without needing to share your cluster credentials with anyone, the person committing the change only needs access to the Git repository where the configuration is stored. The continuous integration tools will recognize the change and automatically start the process of reconciling the changes.</p>
@@ -802,7 +802,7 @@ The GitOps ZTP methodology uses the OpenShift GitOps operator to synchronize Git
 <div class="sect2">
 <h3 id="directories-vs-branches"><a class="anchor" href="#directories-vs-branches"></a>Directories vs Branches</h3>
 <div class="paragraph">
-<p>When doing GitOps we need to keep in mind that using branches is an anti-pattern. We have been using branches for a long time when developing our applications, but when doing GitOps we are no longer developing an application, but defining a configuration. If we look at the different tooling around Kubernetes for managing configurations like <code>Helm</code> or <code>Kustomize</code> you will soon enough see that they know nothing about Git branches, they use just files. There are several reasons why organizing environments as directory structure in a single branch is preferred:</p>
+<p>When using GitOps to manage infrastructure declaratively, the use of branches is an anti-pattern. We have been using branches for a long time when developing our applications, but when doing GitOps we are no longer developing an application, but defining a configuration. If we look at the different tooling around Kubernetes for managing configurations like <code>Helm</code> or <code>Kustomize</code> you will soon enough see that they know nothing about Git branches, they use just files. There are several reasons why organizing environments as directory structure in a single branch is preferred:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -898,7 +898,7 @@ Review cycles for commits changing non-production environments can be automatic 
 </div>
 <nav class="pagination">
   <span class="prev"><a href="ztp-intro.html">Introduction to Zero Touch Provisioning (ZTP)</a></span>
-  <span class="next"><a href="ztp-at-scale.html">ZTP Components</a></span>
+  <span class="next"><a href="ztp-at-scale.html">Hub Management Components</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

@@ -177,7 +177,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="ztp-at-scale.html">ZTP Components</a>
+    <a class="nav-link" href="ztp-at-scale.html">Hub Management Components</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -687,7 +687,7 @@ The workflow does not need any intervention, so ZTP automatically will configure
 </table>
 </div>
 <div class="paragraph">
-<p>The workflow is officially started by creating declarative configurations for the provisioning of your OpenShift clusters. This manifest is described in a custom resource called <code>SiteConfig</code>. See that in a disconnected environment, there is a need for a container registry to deliver the OpenShift container images required for the installation. This task can be achieved by using <a href="https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-disconnected.html">oc-mirror</a>. More information about disconnected environments can be found in <a href="deployment-considerations.html#disconnected-environments">Deployment Considerations section</a>.</p>
+<p>The workflow is officially started by creating declarative configurations for the provisioning of your OpenShift clusters. This manifest is described in a custom resource called <code>SiteConfig</code>. Note that, in a disconnected environment, there is a need for a container registry to deliver the OpenShift container images required for the installation. This task can be achieved by using <a href="https://docs.openshift.com/container-platform/4.12/installing/disconnected_install/installing-mirroring-disconnected.html">oc-mirror</a>. More information about disconnected environments can be found in <a href="deployment-considerations.html#disconnected-environments">Deployment Considerations section</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -742,7 +742,7 @@ On telco use cases, clusters are mainly running on baremetal hosts. Therefore, t
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Notice, in the picture, how ZTP allows us to provision clusters at scale.
+Notice, in the picture, how ZTP allows us to provision clusters at scale. Multiple SiteConfig CRs can be committed to git simultaneously, or over time, to deploy multiple clusters.
 </td>
 </tr>
 </table>
@@ -753,7 +753,7 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale.
 </div>
 </div>
 <div class="paragraph">
-<p>Once the clusters are provisioned, the day-2 configuration defined in one or multiple <code>PolicyGenTemplate</code> (PGTs) custom resources will be automatically applied. <code>PolicyGenTemplate</code> custom resource is understood by the ZTP using a specific kustomize plugin called <a href="https://github.com/openshift-kni/cnf-features-deploy/tree/release-4.12/ztp/policygenerator-kustomize-plugin">policy-generator</a>. In RAN DU nodes, this configuration includes the installation of the common telco operators, common configuration for RAN and specific configuration (SR-IOV or performance settings) for each site since it is very dependent on the hardware.</p>
+<p>Once the clusters are provisioned, the day-2 configuration defined in one or multiple <code>PolicyGenTemplate</code> (PGTs) custom resources will be automatically applied. <code>PolicyGenTemplate</code> custom resource is understood by the ZTP using a specific kustomize plugin called <a href="https://github.com/openshift-kni/cnf-features-deploy/tree/release-4.12/ztp/policygenerator-kustomize-plugin">policy-generator</a>. These templates generate Policy CRs on the hub cluster which define the configuration to be applied to the deployed clusters. A Policy CR can be bound to multiple clusters allowing a scalable means to define configuration across a large fleet of clusters. In RAN DU nodes these policies configure subscriptions for day-two operators, performance tuning, and other necessary platform level configuration.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -761,7 +761,7 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale.
 </div>
 </div>
 <div class="paragraph">
-<p>Notice that if, later on, you want to apply a new configuration or replace an existing configuration  you must use a new <code>policyGenTemplate</code> to do that.</p>
+<p>Notice that if, later on, you want to apply a new configuration or replace an existing configuration you can update the PolicyGenTemplate in git which will automatically propagate to the Policy CRs on the hub cluster.</p>
 </div>
 </div>
 </div>
@@ -774,6 +774,9 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale.
 <div class="ulist">
 <ul>
 <li>
+<p>Leveraging a GitOps methodology for a scalable, traceable and reliable deployment model.</p>
+</li>
+<li>
 <p>Installing the host operating system (RHCOS) on a blank server.</p>
 </li>
 <li>
@@ -781,9 +784,6 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale.
 </li>
 <li>
 <p>Creating cluster policies via <code>PolicyGenTemplate</code> and site subscriptions via <code>SiteConfig</code>.</p>
-</li>
-<li>
-<p>Leveraging a GitOps deployment topology for a develop once, deploy anywhere model.</p>
 </li>
 <li>
 <p>Making the necessary network configurations to the server operating system.</p>
@@ -799,7 +799,7 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale.
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="ztp-at-scale.html">ZTP Components</a></span>
+  <span class="prev"><a href="ztp-at-scale.html">Hub Management Components</a></span>
   <span class="next"><a href="rhacm-policies.html">RHACM Policies</a></span>
 </nav>
 </article>

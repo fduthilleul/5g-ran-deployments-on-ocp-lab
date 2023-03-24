@@ -177,7 +177,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="ztp-at-scale.html">ZTP Components</a>
+    <a class="nav-link" href="ztp-at-scale.html">Hub Management Components</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
@@ -706,6 +706,18 @@
 <div class="paragraph">
 <p>As we already said, PolicyGenTool is a collection of Kustomize plugins. Kustomize plugins work as described below.</p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+When installing these tools in ArgoCD running on a hub cluster the configuration described in this section is handled automatically. The ArgoCD operator will find the plugin binaries and use them to generate CRs from SiteConfig and PolicyGenTemplates. This section is provided as background/reference.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The user has a path configured in Kustomize for plugins (defaults to <code>~/.config/kustomize/plugin/</code>), inside this path different folders are configured in a way that Kustomize can understand what plugin needs to be executed under which situation. Let&#8217;s explain this.</p>
 </div>
@@ -799,7 +811,7 @@ A high level view of the installation and configuration workflow can be found in
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Some of these configurations are configured at install time (through the use of extra-manifests during the installation) and others are configured as a day2ops automatically after the cluster joins the RHACM Hub.
+Some of these configurations are configured at install time (through the use of extra-manifests during the installation) and others are configured through Policy automatically after the cluster joins the RHACM Hub.
 </td>
 </tr>
 </table>
@@ -1008,7 +1020,7 @@ Some of these configurations are configured at install time (through the use of 
 <h2 id="siteconfig-templating"><a class="anchor" href="#siteconfig-templating"></a>SiteConfig Templating</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The SiteConfig templating is pretty straightforward, whatever information we put into our SiteConfig manifest will be translated to the required manifests to quick off the cluster installation. You can find a SiteConfig example <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/gitops-subscriptions/argocd/example/siteconfig/example-sno.yaml">here</a>.</p>
+<p>The SiteConfig templating is pretty straightforward, whatever information we put into our SiteConfig manifest will be translated to the required manifests to initiate the cluster installation. You can find a SiteConfig example <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/gitops-subscriptions/argocd/example/siteconfig/example-sno.yaml">here</a>.</p>
 </div>
 </div>
 </div>
@@ -1016,7 +1028,7 @@ Some of these configurations are configured at install time (through the use of 
 <h2 id="policies-templating"><a class="anchor" href="#policies-templating"></a>Policies Templating</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Policies templating is a bit different, we have a set of policy templates, known as source-crs, that we can use. This set of policies can be found <a href="https://github.com/openshift-kni/cnf-features-deploy/tree/release-4.12/ztp/source-crs">here</a>.</p>
+<p>Policies templating is a bit different, we have a set of base configuration CRs, known as source-crs, that we can use. This set of CRs can be found <a href="https://github.com/openshift-kni/cnf-features-deploy/tree/release-4.12/ztp/source-crs">here</a>.</p>
 </div>
 <div class="paragraph">
 <p>If you access this link you will see lots of files, like for example:</p>
@@ -1035,10 +1047,10 @@ Some of these configurations are configured at install time (through the use of 
 </ul>
 </div>
 <div class="paragraph">
-<p>The way the templating works is a follows:</p>
+<p>These CRs are referenced (by filename) from the PolicyGenTemplate CRs in git. The PolicyGenTemplate CRs act as a manifest of which configuration CRs should be included and how they should be combined into Policy CRs. In addition the PolicyGenTemplate can contain an "overlay" (or patch) that is applied to the CR before it is wrapped into the Policy.</p>
 </div>
 <div class="paragraph">
-<p>We will have one or more PolicyGenTemplates where we will reference these policy templates. We can see an example <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/gitops-subscriptions/argocd/example/policygentemplates/group-du-standard-ranGen.yaml">here</a>.</p>
+<p>The way this works is a follows. We will have one or more PolicyGenTemplates where we will reference these base configuration CRs. We can see an example <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/gitops-subscriptions/argocd/example/policygentemplates/group-du-standard-ranGen.yaml">here</a>.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s use the following PolicyGenTemplate as example.</p>
@@ -1071,13 +1083,13 @@ spec:
 </div>
 </div>
 <div class="paragraph">
-<p>We can see that the PolicyGenTemplate is targeting two policy templates: <code>SriovOperatorConfig.yaml</code> and <code>PerformanceProfile.yaml</code>.</p>
+<p>We can see that the PolicyGenTemplate is targeting two base configuration CRs: <code>SriovOperatorConfig.yaml</code> and <code>PerformanceProfile.yaml</code>.</p>
 </div>
 <div class="paragraph">
-<p>The first template <code>SriovOperatorConfig.yaml</code> is not overriding any settings, we can tell this because we don&#8217;t have a <code>spec</code> or <code>metadata</code> section below the <code>policyName</code>. That means that the final policy will be configured as the <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/source-crs/SriovOperatorConfig.yaml">source template file</a>.</p>
+<p>The first source CR, <code>SriovOperatorConfig.yaml</code>, is not overriding any settings, we can tell this because we don&#8217;t have a <code>spec</code> or <code>metadata</code> section below the <code>policyName</code>. That means that the final policy will include the configuration CR without modification ( <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/source-crs/SriovOperatorConfig.yaml">base SriovOperatorConfig configuration CR</a>).</p>
 </div>
 <div class="paragraph">
-<p>The second template <code>PerformanceProfile.yaml</code> is overriding some parameters in the <code>spec</code>. That means that the final policy will be configured as a merge of the <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/source-crs/PerformanceProfile.yaml">original template</a> plus the custom overrides we provided in the PolicyGenTemplate.</p>
+<p>The second source CR, <code>PerformanceProfile.yaml</code>, is overriding some parameters in the <code>spec</code>. That means that the final policy will be configured as a merge of the <a href="https://github.com/openshift-kni/cnf-features-deploy/blob/release-4.12/ztp/source-crs/PerformanceProfile.yaml">original CR</a> plus the custom overrides we provided in the PolicyGenTemplate.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -1086,7 +1098,7 @@ spec:
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Inside the templates we can often see references to what may appear variables like <code>$size</code>, <code>$count</code>, etc. These are not vars, that actually tells the Kustomize plugin to remove that line from the output if no value was provided as an override. The only variable that is referenced and is actually substituted is the <code>$mcp</code> variable that will be replaced with the value of the same property defined in the PolicyGenTemplate.
+Inside the templates we can often see references to what may appear variables like <code>$size</code>, <code>$count</code>, etc. These are not vars, that actually tells the policyGen plugin to remove that line from the output if no value was provided as an override. The only variable that is referenced and is actually substituted is the <code>$mcp</code> variable that will be replaced with the value of the same property defined in the PolicyGenTemplate.
 </td>
 </tr>
 </table>
