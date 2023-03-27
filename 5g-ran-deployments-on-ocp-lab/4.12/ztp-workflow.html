@@ -745,7 +745,7 @@ On telco use cases, clusters are mainly running on baremetal hosts. Therefore, t
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Notice, in the picture, how ZTP allows us to provision clusters at scale. Multiple SiteConfig CRs can be committed to git simultaneously, or over time, to deploy multiple clusters.
+Notice, in the picture, how ZTP allows us to provision clusters at scale. Multiple SiteConfig CRs can be committed to Git simultaneously, or over time, to deploy multiple clusters.
 </td>
 </tr>
 </table>
@@ -756,7 +756,7 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale. Multip
 </div>
 </div>
 <div class="paragraph">
-<p>Once the clusters are provisioned, the day-2 configuration defined in one or multiple <code>PolicyGenTemplate</code> (PGTs) custom resources will be automatically applied. <code>PolicyGenTemplate</code> custom resource is understood by the ZTP using a specific kustomize plugin called <a href="https://github.com/openshift-kni/cnf-features-deploy/tree/release-4.12/ztp/policygenerator-kustomize-plugin">policy-generator</a>. These templates generate Policy CRs on the hub cluster which define the configuration to be applied to the deployed clusters. A Policy CR can be bound to multiple clusters allowing a scalable means to define configuration across a large fleet of clusters. In RAN DU nodes these policies configure subscriptions for day-two operators, performance tuning, and other necessary platform level configuration.</p>
+<p>Once the clusters are provisioned, the day-2 configuration defined in one or multiple <code>PolicyGenTemplate</code> (PGTs) custom resources will be automatically applied. <code>PolicyGenTemplate</code> custom resource is understood by the ZTP using a specific kustomize plugin called <a href="https://github.com/openshift-kni/cnf-features-deploy/tree/release-4.12/ztp/policygenerator-kustomize-plugin">policy-generator</a>. These templates generate Policy CRs on the hub cluster which define the configuration to be applied to the deployed clusters. A Policy CR can be bound to multiple clusters allowing a scalable means to define configuration across a large fleet of clusters. In RAN DU nodes, these policies configure subscriptions for day-two operators, performance tuning, and other necessary platform level configuration.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -764,7 +764,7 @@ Notice, in the picture, how ZTP allows us to provision clusters at scale. Multip
 </div>
 </div>
 <div class="paragraph">
-<p>Notice that if, later on, you want to apply a new configuration or replace an existing configuration you can update the PolicyGenTemplate in git which will automatically propagate to the Policy CRs on the hub cluster.</p>
+<p>Notice that if, later on, you want to apply a new configuration or replace an existing configuration you can update the PolicyGenTemplate in Git which will automatically propagate to the Policy CRs on the hub cluster.</p>
 </div>
 </div>
 </div>
