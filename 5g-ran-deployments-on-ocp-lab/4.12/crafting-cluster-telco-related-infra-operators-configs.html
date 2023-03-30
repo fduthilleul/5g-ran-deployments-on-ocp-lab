@@ -692,6 +692,18 @@ Below commands must be executed from the workstation host if not specified other
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The configuration defined through these PolicyGenTemplate CRs is only a subset of what was described in <a href="telco-related-infra-operators-intro.html" class="xref page">Introduction to Telco Related Infrastructure Operators</a>. This is for clarity and tailored to the lab environment. A full production environment would have additional configuration not included here.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -890,11 +902,6 @@ spec:
              "systemReserved": {"memory": "3Gi"}
             }
       spec:
-        additionalKernelArgs:
-        - "firmware_class.path=/var/lib/firmware/"
-        - 'nohz_full={{hub fromConfigMap "" "hub1-sites-data" (printf "%s-isolated-cpus" .ManagedClusterName) hub}}'
-        - "crashkernel=1024M"
-        - "efi=runtime"
         cpu:
           isolated: '{{hub fromConfigMap "" "hub1-sites-data" (printf "%s-isolated-cpus" .ManagedClusterName) hub}}'
           reserved: '{{hub fromConfigMap "" "hub1-sites-data" (printf "%s-reserved-cpus" .ManagedClusterName) hub}}'
